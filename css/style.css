@@ -1,3 +1,71 @@
 * {
     margin: 0;
 }
+
+body {
+    height: 100vh;
+    display: flex;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    height: 100%;
+    background-color: #fff;
+    padding: 30px 20px;
+}
+
+#navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#logo {
+    height: 50px;
+}
+
+#navigation img {
+    padding: 10px;
+    border-radius: 8px;
+    height: 30px;
+    width: 30px;
+}
+
+#evaluation-icon:hover {
+    content: url(/img/evaluation_icon_white.svg);
+    background-color: #242424;
+}
+
+#appointments-icon:hover {
+    content: url(/img/appointments_icon_white.svg);
+    background-color: #242424;
+}
+
+#gallery-icon:hover {
+    content: url(/img/gallery_icon_white.svg);
+    background-color: #242424;
+}
+
+#reminders-icon:hover {
+    content: url(/img/reminders_icon_white.svg);
+    background-color: #242424;
+}
+
+#appointments, #gallery, #reminders {
+    visibility: hidden;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    background-color: #effaff;
+    padding: 30px 30px;
+}
+
+h1, p {
+    font-family: Outfit, sans-serif;
+}
