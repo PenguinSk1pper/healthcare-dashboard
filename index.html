@@ -12,10 +12,10 @@
 </head>
 <body>
     <aside id="sidebar">
-        <img src="/img/logo.svg" alt="Logo" id="logo">
+        <img src="img/logo.svg" alt="Logo" id="logo">
 
         <nav id="navigation">
-            <img src="/img/evaluation_icon_black.svg" alt="Evaluation" id="evaluation-icon">
+            <img src="img/evaluation_icon_black.svg" alt="Evaluation" id="evaluation-icon">
             <img src="img/appointments_icon_black.svg" alt="Appointments" id="appointments-icon">
             <img src="img/gallery_icon_black.svg" alt="Gallery" id="gallery-icon">
             <img src="img/reminders_icon_black.svg" alt="Reminders" id="reminders-icon">
@@ -25,15 +25,166 @@
     <main>
         <section id="evaluation">
             <div class="section-title">
-                <h1>Evaluare</h1>
-                <p>November 14, 2026</p>
+                <h1>Evaluarea riscului de diabet</h1>
+                <p id="current-date">14 Noiembrie 2026</p>
             </div>
 
+            <div id="evaluation-layout">
+                <form id="evaluation-formular">
+                    <div class="form-row">
+                        <div class="form-group" id="dob-group">
+                            <label for="dob" class="field-title">1. Data nașterii</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
 
+                        <fieldset class="form-group" id="sex-group">
+                            <legend class="field-title">Sex</legend>
+
+                            <div class="radio-row">
+                                <label class="radio-option">
+                                    <input type="radio" name="sex" value="Barbat" required>
+                                    Bărbat
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="sex" value="Femeie">
+                                    Femeie
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="height" class="field-title">Înălțime (cm)</label>
+                            <input type="number" id="height" name="height" min="140" max="210" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight" class="field-title">Greutate (kg)</label>
+                            <input type="number" id="weight" name="weight" min="40" max="200" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div id="imc">
+                            <p>2. Indicele de masă corporală (IMC): <span id="imc-result">-</span></p>
+                            <small>IMC se calculeaza conform inaltimii si greutatii.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="abd" class="field-title">3. Circumferința abdominală (cm)</label>
+                            <input type="number" id="abd" name="abd" min="50" max="160" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <fieldset class="form-group">
+                            <legend class="field-title">4. Practicați zilnic cel puțin 30 de minute de activitate fizică?</legend>
+
+                            <div class="radio-row">
+                                <label class="radio-option">
+                                    <input type="radio" name="activity" value="Da" required>
+                                    Da
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="activity" value="Nu">
+                                    Nu
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <legend class="field-title">5. Cât de des mâncați legume, fructe sau fructe de pădure?</legend>
+
+                            <div class="radio-row">
+                                <label class="radio-option">
+                                    <input type="radio" name="food" value="In fiecare zi" required>
+                                    În fiecare zi
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="food" value="Nu in fiecare zi">
+                                    Nu în fiecare zi
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-row">
+                        <fieldset class="form-group">
+                            <legend class="field-title">6. Ați luat vreodată tratament antihipertensiv în mod regulat?</legend>
+
+                            <div class="radio-row">
+                                <label class="radio-option">
+                                    <input type="radio" name="treatment" value="Da" required>
+                                    Da
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="treatment" value="Nu">
+                                    Nu
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <legend class="field-title">7. Ați avut vreodată valori crescute ale glicemiei?</legend>
+
+                            <div class="radio-row">
+                                <label class="radio-option">
+                                    <input type="radio" name="blood-sugar" value="Da" required>
+                                    Da
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="blood-sugar" value="Nu">
+                                    Nu
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-row">
+                        <fieldset class="form-group">
+                            <legend class="field-title">8. Aveți rude diagnosticate cu diabet (tip 1 sau 2)?</legend>
+
+                            <div class="radio-row">
+                                <label class="radio-option">
+                                    <input type="radio" name="kin" value="Nu" required>
+                                    Nu
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="kin" value="Da: bunici, matusi, unchi, veri primari">
+                                    Da: bunici, mătuși, unchi, veri primari
+                                </label>
+
+                                <label class="radio-option">
+                                    <input type="radio" name="kin" value="Da: parinti, frati, surori, copii">
+                                    Da: părinți, frați, surori, copii
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <button type="submit" id="form-submit">Calculează riscul</button>
+                </form>
+                <div id="evaluation-result">
+                    <h2>Rezultatul evaluarii</h2>
+                    <p id="result-placeholder">Completeaza formularul pentru a vedea rezultatul evaluarii.</p>
+
+                    <div id="result-content" hidden>
+
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="appointments">
             <h1>Inregistrare la consultatie</h1>
+
 
         </section>
 

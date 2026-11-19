@@ -1,38 +1,63 @@
+/* General */
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    font-family: 'Outfit', sans-serif;
+    background-color: #f5f5f0;
 }
+
+h1, h2, p {
+    font-family: 'Outfit', sans-serif;
+}
+
+h1 {
+    font-family: 'Syne', sans-serif;
+    color: #3d3935
+}
+
+small {
+    color: #a47755;
+    font-size: 12px;
+}
+
+/* Sidebar */
 
 #sidebar {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 60px;
-    height: 100%;
-    background-color: #fff;
-    padding: 30px 20px;
+
+    padding: 32px 16px;
+
+    background-color: #5D866C;
+    border-radius: 0 16px 16px 0;
+}
+
+#logo {
+    height: 48px;
 }
 
 #navigation {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-#logo {
-    height: 50px;
+    gap: 24px;
 }
 
 #navigation img {
+    width: 48px;
+    height: 48px;
     padding: 10px;
     border-radius: 8px;
-    height: 30px;
-    width: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 #evaluation-icon:hover {
@@ -55,17 +80,184 @@ body {
     background-color: #242424;
 }
 
-#appointments, #gallery, #reminders {
+/* Main */
+main {
+    flex: 1;
+    min-width: 0;
+    padding: 24px;
+    /* overflow-y: auto; */
+}
+
+#appointments,
+#gallery,
+#reminders {
     display: none;
 }
 
-main {
-    height: 100%;
-    width: 100%;
-    background-color: #effaff;
-    padding: 30px 30px;
+#evaluation {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
-h1, p {
-    font-family: Outfit, sans-serif;
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Evaluation layout*/
+#evaluation-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 24px;
+}
+
+#evaluation-formular,
+#evaluation-result {
+    min-width: 0;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+/* Form */
+#evaluation-formular {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+    border: none;
+}
+
+.field-title {
+    font-size: 14px;
+    color: #3d3935
+}
+
+#evaluation-formular input[type="number"],
+#evaluation-formular input[type="date"] {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+
+    background-color: #e6d8c3;
+    border: 1px solid transparent;
+    border-radius: 6px;
+
+    color: #3d3935;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+#evaluation-formular input:focus {
+    border-color: #a47755;
+    background-color: #f2e9dd;
+}
+
+/* Radio buttons */
+fieldset {
+    min-width: 0;
+    border: none;
+}
+
+.radio-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    min-height: 42px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #3d3935;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#radio-row input[type="radio"] {
+    accent-color: #a47755;
+    cursor: pointer;
+}
+
+/* IMC */
+#imc {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 12px;
+
+    background-color: #f2e9dd;
+    border-radius: 6px;
+}
+
+#imc p {
+    color: #3d3935;
+    font-size: 14px;
+}
+
+#imc-result {
+    color: #a47755;
+}
+
+/* Submit button */
+#form-submit {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 12px;
+
+    background-color: #3d3935;
+    border: none;
+    border-radius: 6px;
+
+    color: #f2f2f2;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+#form-submit:hover {
+    background-color: #5D866C;
+}
+
+/* Result */
+#evaluation-result {
+    min-height: 300px;
+}
+
+#evaluation-result h2 {
+    margin-bottom: 16px;
+    color: #3d3935;
+    font-size: 20px;
+}
+
+#result-placeholder {
+    color: #77716b;
+    font-size: 14px;
 }
