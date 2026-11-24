@@ -23,6 +23,18 @@ function showError(camp, message) {
     camp.insertAdjacentElement("afterend", errorMessage);
 }
 
+function checkValidityOfBirthDate(camp) {
+    let birthDate = new Date(camp.value);
+    let currentDate = new Date();
+
+    let varsta = currentDate.getFullYear() - birthDate.getFullYear();
+
+    if (currentDate.getMonth() < birthDate.getMonth() || (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate()))
+        varsta--;
+
+    return varsta >= 18;
+}
+
 function checkValidity(formular) {
     let campuri = formular.elements;
     for (let camp of campuri) {
@@ -50,11 +62,16 @@ function checkValidity(formular) {
                 break;
             }
 
-        if (!isChecked)
-                return false;
+        if (!isChecked) {
+            return false;
+        }
     };
 
     return true;
+}
+
+function calculateBMI(weight, height) {
+    return (weight/(Math.pow(Number(height)/100, 2))).toFixed(1);
 }
 
 //Forms results
@@ -64,5 +81,26 @@ evaluationFormular.addEventListener("submit", function(event) {
 
     if (!checkValidity(evaluationFormular))
         return;
+
+    let dob = evaluationFormular.querySelector("#dob");
+    let errorMessage = dob.parentElement.querySelector(".error-message");
+    
+    if (!checkValidityOfBirthDate(dob)) {
+        if (!errorMessage)
+            showError(dob, "Trebuie sa ai cel putin 18 ani!");
+        return;
+    } else
+        if (errorMessage)
+            errorMessage.remove();
+    
+    //Add BMI in form
+    let weight = evaluationFormular.querySelector("#weight").value;
+    let height = evaluationFormular.querySelector("#height").value;
+
+    let imc = calculateBMI(weight, height);
+
+    let imcResult = evaluationFormular.querySelector("#imc-result");
+    imcResult.textContent = imc;
+
     
 });
