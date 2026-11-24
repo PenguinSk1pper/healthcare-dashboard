@@ -241,8 +241,48 @@
         </section>
 
         <section id="gallery">
-            <h1>Stil de viata sanatos</h1>
+            <div class="section-title">
+                <h1>Stil de viata sanatos</h1>
+            </div>
 
+            <div id="gallery-intro">
+                <h2>Descopera obiceiuri sanatoase</h2>
+                <p>Exploreaza imagini si recomandari despre alimentatie, activitate fizica si monitorizarea sanatatii.</p>
+            </div>
+
+            <div id="gallery-container">
+                <h2>Galerie foto</h2>
+
+                <div id="gallery-filters">
+                    <button class="filter-btn" active id="filter-btn-all">Toate</button>
+                    <button class="filter-btn" id="filter-btn-food">Alimentatie</button>
+                    <button class="filter-btn" id="filter-btn-activity">Activitate fizica</button>
+                    <button class="filter-btn" id="filter-btn-measurement">Masurare corecta</button>
+                </div>
+
+                <div id="gallery-grid">
+
+                </div>
+            </div>
+
+            <div id="gallery-modal">
+                <div id="modal-content">
+                    <button id="modal-close">&times;</button>
+                    
+                    <div id="modal-img-container">
+                        <img id="modal-img" src="" alt="">
+                    </div>
+
+                    <button id="modal-prev">&#10094;</button>
+                    <button id="modal-next">&#10095;</button>
+
+                    <div id="modal-info">
+                        <h2 id="modal-title"></h2>
+                        <p id="modal-description"></p>
+                        <span id="modal-position"></span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="reminders">
