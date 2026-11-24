@@ -108,8 +108,10 @@ evaluationFormular.addEventListener("submit", function(event) {
 
     let imc = calculateBMI(weight, height);
 
-    let imcResult = evaluationFormular.querySelector("#imc-result");
+    let imcResult = evaluationFormular.querySelector("#imc-display");
     imcResult.textContent = imc;
 
-    
+    calculateAge();
+    // computeScore();
+    // renderResults();
 });

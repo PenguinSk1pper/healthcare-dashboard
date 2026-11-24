@@ -71,7 +71,7 @@
                     <div class="form-row">
                         <div id="imc">
                             <label>2. Indicele de masă corporală (IMC)</label>
-                            <span id="imc-result">-</span>
+                            <span id="imc-display">-</span>
                         </div>
 
                         <div class="form-group">
@@ -177,8 +177,58 @@
                     <h2>Rezultatul evaluarii</h2>
                     <p id="result-placeholder">Completeaza formularul pentru a vedea rezultatul evaluarii.</p>
 
-                    <div id="result-content" hidden>
+                    <div id="result-content">
+                        <div class="result-row">
+                            <div id="imc-result">
+                                <h3>Indicile masei corporale (IMC)</h3>
 
+                                <div class="result-value">
+                                    <span id="imc-value"></span>
+                                    <span id="imc-category"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-row">
+                            <div id="score-result">
+                                <h3>Scorul total</h3>
+
+                                <div class="result-value">
+                                    <span id="score-value"></span>
+                                </div>
+                            </div>
+                            <div id="risk-result">
+                                <h3>Nivelul de risc</h3>
+
+                                <div class="result-value">
+                                    <span id="risk-level"></span>
+                                </div>
+
+                                <p id="risk-probability"></p>
+                            </div>
+                        </div>
+
+                        <div class="result-row">
+                            <div id="abs-result">
+                                <h3>Circumferinta abdominala</h3>
+
+                                <div class="result-value">
+                                    <span id="abd-value"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-row">
+                            <div id="recommendations">
+                                <h3>Recomandari</h3>
+
+                                <div id="recommendations-list">
+                                    <p>-</p>
+                                    <p>-</p>
+                                    <p>-</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

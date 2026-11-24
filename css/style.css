@@ -21,6 +21,11 @@ h1 {
     color: #3d3935
 }
 
+h3 {
+    font-size: 14px;
+    color: #3d3935;
+}
+
 .error-message {
     color: #D9534F;
     font-size: 12px;
@@ -155,12 +160,12 @@ main {
 
 .field-title, #imc label {
     font-size: 14px;
-    color: #3d3935
+    color: #3d3935;
 }
 
 #evaluation-formular input[type="number"],
 #evaluation-formular input[type="date"],
-#imc-result {
+#imc-display {
     width: 100%;
     height: 42px;
     padding: 0 12px;
@@ -220,7 +225,7 @@ fieldset {
     border-radius: 6px;
 }
 
-#imc-result {
+#imc-display {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -252,7 +257,10 @@ fieldset {
 
 /* Result */
 #evaluation-result {
+    display: flex;
+    flex-direction: column;
     min-height: 300px;
+    gap: 24px;
 }
 
 #evaluation-result h2 {
@@ -264,4 +272,30 @@ fieldset {
 #result-placeholder {
     color: #77716b;
     font-size: 14px;
+}
+
+#result-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.result-row > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.result-value {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 80px;
+    background-color: #f2d6c3;
+    border-radius: 12px;
 }
