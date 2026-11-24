@@ -299,3 +299,10 @@ fieldset {
     background-color: #f2d6c3;
     border-radius: 12px;
 }
+
+/* Gallery section */
+#gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
