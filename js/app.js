@@ -90,7 +90,7 @@ function calculateBMI(weight, height) {
     return (weight/(Math.pow(Number(height)/100, 2))).toFixed(1);
 }
 
-//Forms results
+//Form results
 const evaluationFormular = document.getElementById("evaluation-formular");
 evaluationFormular.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -110,8 +110,45 @@ evaluationFormular.addEventListener("submit", function(event) {
 
     let imcResult = evaluationFormular.querySelector("#imc-display");
     imcResult.textContent = imc;
-
-    calculateAge();
-    // computeScore();
-    // renderResults();
 });
+
+//Gallery
+let galleryContainer = document.querySelector("#gallery-grid");
+let filterButtons = document.querySelectorAll(".filter-btn");
+displayImgByFilter("all"); //Afiseaza automat pentru categoria initiala toate
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        filterButtons.forEach(element => {
+            element.classList.remove("active-btn");
+        });
+
+        button.classList.add("active-btn");
+        displayImgByFilter(button.id.slice(button.id.lastIndexOf("-") + 1, button.id.length));
+    });
+});
+
+function displayImgByFilter (category) {
+    galleryContainer.innerHTML = "";
+
+    if (category == "all") {
+        galleryImages.forEach(image => {
+            generateImg(image);
+        });
+    } else {
+        galleryImages.forEach(image => {
+            if (image.category == category) {
+                generateImg(image);
+            }
+        });
+    }
+}
+
+function generateImg(image) {
+    let img = document.createElement("img");
+    img.src = image.path;
+    img.classList.add("gallery-img");
+    img.alt = image.title;
+
+    galleryContainer.append(img);
+}
