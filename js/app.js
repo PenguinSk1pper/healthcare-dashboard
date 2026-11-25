@@ -113,6 +113,7 @@ evaluationFormular.addEventListener("submit", function(event) {
 });
 
 //Gallery
+let activeCategory = "all";
 let galleryContainer = document.querySelector("#gallery-grid");
 let filterButtons = document.querySelectorAll(".filter-btn");
 displayImgByFilter("all"); //Afiseaza automat pentru categoria initiala toate
@@ -124,7 +125,8 @@ filterButtons.forEach(button => {
         });
 
         button.classList.add("active-btn");
-        displayImgByFilter(button.id.slice(button.id.lastIndexOf("-") + 1, button.id.length));
+        activeCategory = button.id.slice(button.id.lastIndexOf("-") + 1, button.id.length);
+        displayImgByFilter(activeCategory);
     });
 });
 
@@ -150,5 +152,88 @@ function generateImg(image) {
     img.classList.add("gallery-img");
     img.alt = image.title;
 
+    img.addEventListener("click", () => {
+        openModal(galleryImages.indexOf(image));        
+    });
+
     galleryContainer.append(img);
+}
+
+//Display modal of image
+let currentImageIndex = 0;
+function openModal(index) {
+    currentImageIndex = index;
+    //BLocking scroll
+    document.querySelector("body").style.overflow = "hidden";
+
+    document.querySelector("#gallery-modal").style.display = "flex";
+
+    let img = galleryImages[index];
+    document.querySelector("#modal-img").src = img.path;
+    document.querySelector("#modal-img").alt = img.title;
+
+    document.querySelector("#modal-title").textContent = img.title;
+    document.querySelector("#modal-description").textContent = img.description;
+    document.querySelector("#modal-position").textContent = `${index + 1}/${galleryImages.length}`;
+}
+
+//Close modal
+document.querySelector("#modal-close").addEventListener("click", () => {
+    document.querySelector("body").style.overflow = "";
+    document.querySelector("#gallery-modal").style.display = "none";
+    return;
+});
+
+//Next image
+document.querySelector("#modal-next").addEventListener("click", () => {
+    nextImage();
+});
+
+//Previous image
+document.querySelector("#modal-prev").addEventListener("click", () => {
+    prevImage();
+});
+
+function nextImage() {
+    if (activeCategory == "all") {
+        if (currentImageIndex + 1 < galleryImages.length)
+            return openModal(currentImageIndex + 1);
+        return openModal(0);
+    }
+
+    let index = currentImageIndex + 1;
+    while (index < galleryImages.length) {
+        if (galleryImages[index].category == activeCategory)
+            return openModal(index);
+
+        index++;
+    }
+
+    index = 0;
+    while (galleryImages[index].category != activeCategory) {
+        index++;
+    }
+    return openModal(index);
+}
+
+function prevImage() {
+    if (activeCategory == "all") {
+        if (currentImageIndex - 1 >= 0)
+            return openModal(currentImageIndex - 1);
+        return openModal(galleryImages.length - 1);
+    }
+
+    let index = currentImageIndex - 1;
+    while (index >= 0) {
+        if (galleryImages[index].category == activeCategory)
+            return openModal(index);
+
+        index--;
+    }
+
+    index = galleryImages.length - 1;
+    while (galleryImages[index].category != activeCategory) {
+        index--;
+    }
+    return openModal(index);
 }
