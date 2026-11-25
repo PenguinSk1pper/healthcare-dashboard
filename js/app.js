@@ -178,22 +178,24 @@ function openModal(index) {
 }
 
 //Close modal
-document.querySelector("#modal-close").addEventListener("click", () => {
+function closeModal() {
     document.querySelector("body").style.overflow = "";
     document.querySelector("#gallery-modal").style.display = "none";
-    return;
+}
+
+document.querySelector("#modal-close").addEventListener("click", closeModal);
+
+document.addEventListener("keydown", (event) => {
+    if (event.key == "Escape")
+        closeModal();
+});
+
+document.querySelector("#gallery-modal").addEventListener("click", (event) => {
+    if (event.target == document.querySelector("#gallery-modal"))
+        closeModal();
 });
 
 //Next image
-document.querySelector("#modal-next").addEventListener("click", () => {
-    nextImage();
-});
-
-//Previous image
-document.querySelector("#modal-prev").addEventListener("click", () => {
-    prevImage();
-});
-
 function nextImage() {
     if (activeCategory == "all") {
         if (currentImageIndex + 1 < galleryImages.length)
@@ -216,6 +218,16 @@ function nextImage() {
     return openModal(index);
 }
 
+document.querySelector("#modal-next").addEventListener("click", () => {
+    nextImage();
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key == "ArrowRight")
+        nextImage();
+});
+
+//Previous image
 function prevImage() {
     if (activeCategory == "all") {
         if (currentImageIndex - 1 >= 0)
@@ -237,3 +249,12 @@ function prevImage() {
     }
     return openModal(index);
 }
+
+document.querySelector("#modal-prev").addEventListener("click", () => {
+    prevImage();
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key == "ArrowLeft")
+        prevImage();
+});

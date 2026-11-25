@@ -42,9 +42,7 @@ h3 {
     flex-direction: column;
     align-items: center;
     gap: 60px;
-
     padding: 32px 16px;
-
     background-color: #5D866C;
     border-radius: 0 16px 16px 0;
 }
@@ -174,7 +172,7 @@ main {
     height: 42px;
     padding: 0 12px;
 
-    background-color: #e6d8c3;
+    background-color: #ffb778;
     border: 1px solid transparent;
     border-radius: 6px;
 
@@ -215,11 +213,6 @@ fieldset {
     cursor: pointer;
 }
 
-#radio-row input[type="radio"] {
-    accent-color: #a47755;
-    cursor: pointer;
-}
-
 /* IMC */
 #imc {
     flex: 1;
@@ -233,7 +226,7 @@ fieldset {
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: #eecece;
+    background-color: #ffc99a;
     font-weight: bold;
 }
 
@@ -243,20 +236,19 @@ fieldset {
     min-height: 42px;
     padding: 0 12px;
 
-    background-color: #3d3935;
+    background-color: #5D866C;
     border: none;
     border-radius: 6px;
 
-    color: #f2f2f2;
+    color: #f5f5f0;
     font-family: inherit;
     font-size: 14px;
     cursor: pointer;
-
     transition: background-color 0.2s;
 }
 
 #form-submit:hover {
-    background-color: #5D866C;
+    background-color: #80a58f;
 }
 
 /* Result */
@@ -269,7 +261,7 @@ fieldset {
 
 #evaluation-result h2 {
     margin-bottom: 16px;
-    color: #3d3935;
+    color: #3a3a3a;
     font-size: 20px;
 }
 
@@ -300,7 +292,7 @@ fieldset {
     flex-direction: column;
     width: 100%;
     min-height: 80px;
-    background-color: #f2d6c3;
+    background-color: #ffc99a;
     border-radius: 12px;
 }
 
@@ -328,24 +320,39 @@ fieldset {
     object-fit: cover;
     border-radius: 12px;
     transition: transform 0.2s;
+    cursor: pointer;
 }
 
 .gallery-img:hover {
-    transform: scale(1.08);
+    transform: scale(1.04);
 }
 
 #gallery-filters {
     display: flex;
-    gap: 8px;
+    gap: 10px;
 }
 
 #gallery-filters > button {
-    width: 100px;
-    height: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffb778;
+    color: #3d3935;
+    padding: 0 20px;
+    min-width: 130px;
+    height: 42px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    transition: background-color 0.2s;
 }
 
-.active-btn {
+#gallery-filters > button:hover {
+    background-color: #ffc99a;
+}
+
+#gallery-filters > button.active-btn {
     background-color: #5D866C;
+    color: #fff;
 }
 
 /* Modal */
@@ -357,8 +364,7 @@ fieldset {
     inset: 0;
     z-index: 1000;
     padding: 20px;
-    background-color:rgba(56, 46, 42, 0.5);
-    backdrop-filter: blur(5px);
+    background-color:rgba(56, 46, 42, 0.7);
 }
 
 #modal-content {
@@ -418,6 +424,7 @@ fieldset {
 }
 
 #modal-title {
+    color: #3a3a3a;
     font-family: 'Syne', sans-serif;
     font-size: 22px;
 }
