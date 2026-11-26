@@ -72,3 +72,46 @@ const galleryImages = [
         path: "/img/measurement-4.jpg"
     }
 ];
+
+const doctors = [
+    {
+        name: "Ana Popescu",
+        speciality: "Endocrinolog",
+        workdays: ["luni", "marti", "miercuri", "joi", "vineri"],
+        open: 8.00,
+        close: 14.00,
+        time: 20
+    },
+    {
+        name: "Ion Rusu",
+        speciality: "Medic de familie",
+        workdays: ["luni", "marti", "miercuri", "joi", "vineri"],
+        open: 8.00,
+        close: 16.00,
+        time: 15
+    },
+    {
+        name: "Elena Ciobanu",
+        speciality: "Nutritionist",
+        workdays: ["luni", "miercuri", "vineri"],
+        open: 10.00,
+        close: 16.00,
+        time: 30
+    },
+    {
+        name: "Victor Lungu",
+        speciality: "Cardiolog",
+        workdays: ["marti", "joi"],
+        open: 9.00,
+        close: 13.00,
+        time: 20
+    },
+    {
+        name: "Maria Turcanu",
+        speciality: "Oftalmolog",
+        workdays: ["luni", "marti", "miercuri", "joi"],
+        open: 12.00,
+        close: 18.00,
+        time: 20
+    }
+];
